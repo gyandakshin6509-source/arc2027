@@ -130,6 +130,10 @@ from the sim are marked TBD rather than estimated.
 > Add: OpenRocket side profile, stability-vs-time plot, drag plot, and a render of the
 > fin alignment jig. Commit images under `docs/img/` and link them here.
 
+> **Before committing any image:** crop out window title bars and file paths — they
+> usually contain a username — and check that no faces, signage, or addresses are visible.
+> See [`devlog/README.md`](devlog/README.md).
+
 > **Fusion 360 public share link — TBD.**
 > Requires the Fusion document to be published with a public link, then the URL pasted
 > here and into [`CAD/README.md`](CAD/README.md).

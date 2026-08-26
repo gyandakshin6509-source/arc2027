@@ -47,6 +47,25 @@ If a flight number changed, update ../docs/openrocket-extract.md in the same com
 - What is blocked, and what the next session should pick up.
 ```
 
+## Keep personal details out
+
+This repository is public. Devlog entries are freeform prose written quickly, which makes
+them the most likely place for something personal to end up. Before committing an entry,
+check that it does not contain:
+
+- Full legal names. Use first names or initials.
+- The school name, the team's home address, or a launch site address. "The field" and
+  "the lab" are specific enough for a log.
+- Phone numbers, emails, or handles for anyone on the team.
+- Photographs that show faces, house numbers, vehicle plates, or school signage.
+
+Screenshots leak more than people expect: an OpenRocket or Fusion window will often show a
+full filesystem path containing a username, and a desktop capture shows whatever else was
+open. Crop to the content.
+
+None of this is about hiding the work — it is that the work is the thing being published,
+and the team's personal details are not part of it.
+
 ## Conventions
 
 - Present tense for what you did, past tense for what you found. Keep it short.
