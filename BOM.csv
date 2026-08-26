@@ -1,0 +1,21 @@
+category,item,spec,qty,unit_cost_usd,vendor,url,status,notes
+# ARC 2027 vehicle revision G. Nothing here has been sourced: every unit_cost_usd/vendor/url is TBD.
+# EXCLUDED BY DESIGN: rocket motors (AeroTech F30FJ-6) igniters and hen's eggs are deliberately NOT
+# in this BOM because they are funded separately from the hardware budget. Do not add them.
+# Rows tagged IMPLIED are parts referenced in the design record but never given a specification;
+# confirm the spec against revision G before sourcing.
+# This BOM is not yet complete: it covers the components named in the revision G configuration only.
+Airframe,Forward airframe tube,66 mm OD T-80; length TBD,1,TBD,TBD,TBD,not ordered,Primary section. Must be >=300 mm long to satisfy the ARC dimension rule; length not yet extracted from the model.
+Airframe,Aft airframe tube,54 mm OD; length TBD,1,TBD,TBD,TBD,not ordered,Carries the fins. OD differs from the forward tube by more than the 9 mm minimum.
+Airframe,Boattail transition,66 mm to 54 mm; length TBD,1,TBD,TBD,TBD,not ordered,Joins forward and aft sections. Material and manufacturing method TBD.
+Airframe,Motor mount tube,24 mm; length TBD,1,TBD,TBD,TBD,not ordered,Sized for the 24 x 95 mm motor. Retention method TBD.
+Airframe,Nose cone,TBD,1,TBD,TBD,TBD,not ordered,IMPLIED - required by the nose ballast and the CG-from-nose-tip datum but never specified in revision G. Shape length and material all TBD.
+Aerostructure,G10 fin blank,1.6 mm thick,3,TBD,TBD,TBD,not ordered,Planform 95 mm root chord / 40 mm tip chord / 55 mm semispan / 50 mm sweep. Cant 0.0 deg in sim; 0.5 deg under consideration and not committed. Sheet stock size TBD.
+Mass,Nose ballast,42 g,1,TBD,TBD,TBD,not ordered,Mass is fixed at 42 g. Ballast material and retention method TBD.
+Avionics,PerfectFlite Pnut altimeter,7.4 g,1,TBD,TBD,TBD,not ordered,On the ARC approved altimeter list.
+Recovery,Nylon parachute,22 in,1,TBD,TBD,TBD,not ordered,Sized against the 37-40 s duration band. Line length and attachment TBD.
+Recovery,Jolly Logic Chute Release,TBD,1,TBD,TBD,TBD,not ordered,Delays parachute opening to trim descent duration. Release altitude setting TBD.
+Structure,Plywood stock,TBD,TBD,TBD,TBD,TBD,not ordered,IMPLIED - plywood is referenced in the fin can decision as already being in the design but its thickness grade and the parts made from it are unspecified.
+Consumable,Epoxy,TBD,TBD,TBD,TBD,TBD,not ordered,IMPLIED - referenced in the fin alignment jig purpose. Type and cure schedule TBD.
+Hardware,Rail guidance hardware,TBD,TBD,TBD,TBD,TBD,not ordered,IMPLIED - a 6 ft rail is used for the 14.0 m/s rail exit figure but no rail button or launch lug is specified in revision G.
+Tooling,PETG filament,TBD,TBD,TBD,TBD,TBD,not ordered,For the fin alignment jig. Approximately 50 g consumed per print at 4 walls and 20 percent infill in about 4 hours; solid volume would be about 151 g. Tooling only - zero flight mass.

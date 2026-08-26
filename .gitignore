@@ -1,0 +1,63 @@
+# ---- Fusion 360 ----
+*.f3d.lock
+*.f3z.lock
+Fusion360/
+AutodeskWebServicesTemp/
+*.bak.f3d
+# Fusion local cache / offline working files
+.Autodesk/
+*.f3d.tmp
+
+# ---- OpenRocket ----
+*.ork.bak
+*.ork.bak.*
+*~
+.openrocket/
+
+# ---- Slicer output ----
+*.gcode
+*.gco
+*.3mf
+*.bgcode
+
+# ---- KiCad ----
+*-backups/
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.kicad_prl
+*.sch-bak
+*.bak
+*.kicad_pro.lck
+fp-info-cache
+~*.kicad_*
+*-cache.lib
+*-rescue.lib
+*-rescue.dcm
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ---- OS cruft ----
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ---- Editors ----
+.vscode/
+.idea/
+*.swp
