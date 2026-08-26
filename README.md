@@ -44,9 +44,11 @@ revision G is the current configuration; nothing has been flown yet.
 
 | Item | Value |
 |---|---|
-| Forward airframe | 66 mm, T-80 |
-| Aft airframe | 54 mm |
-| Transition | 66 → 54 mm boattail |
+| Overall length | 780 mm (230 nose + 320 forward + 50 transition + 180 aft) |
+| Nose cone | Ogive, 230 mm, Ø66 mm aft, 1.5 mm polystyrene wall, 35 mm aft shoulder |
+| Forward airframe | 66 mm, T-80, 320 mm |
+| Aft airframe | 54 mm, 180 mm |
+| Transition | 66 → 54 mm boattail, 50 mm |
 | Motor mount | 24 mm |
 | Motor | AeroTech F30FJ-6, 47.0 N·s, 24 × 95 mm |
 | Fins | 3 × G10, 1.6 mm thick, mounted on the 54 mm aft tube |
@@ -55,10 +57,10 @@ revision G is the current configuration; nothing has been flown yet.
 | Liftoff mass | ~571–574 g |
 | Static stability | 1.78 cal at liftoff, 2.06 cal at burnout |
 | Nose ballast | 42 g |
+| Payload | Egg capsule, 170 g, 130 mm × 61 mm envelope, at station top+20 mm — **lumped mass only, undesigned** |
 | Altimeter | PerfectFlite Pnut, 7.4 g |
 | Recovery | 22 in nylon parachute with Jolly Logic Chute Release |
 | Rail exit velocity | 14.0 m/s off a 6 ft rail |
-| Overall length | TBD <!-- read from OpenRocket, see docs/openrocket-extract.md --> |
 
 ---
 
@@ -71,8 +73,6 @@ revision G is the current configuration; nothing has been flown yet.
 ├── .gitignore
 ├── BOM.csv                     bill of materials; costs and vendors not yet sourced
 ├── CAD/                        Fusion 360 sources and STEP exports
-├── PCB/                        not started
-├── firmware/                   not started
 ├── sim/                        OpenRocket model
 ├── docs/
 │   ├── design-decisions.md     decision log
@@ -89,12 +89,12 @@ revision G is the current configuration; nothing has been flown yet.
 |---|---|
 | OpenRocket model | Revision G simulated; values pending hand extraction |
 | Airframe | Not built |
+| Egg capsule | **Undesigned.** 170 g lumped mass in the sim; no geometry, no foam spec, no retention, no CAD. Largest open risk in the project. |
 | Fin alignment jig | Designed in Fusion 360; slot clearance and cant parameters open; not printed |
 | Fins | Not cut |
 | Recovery | Components selected, not sourced |
 | Electronics bay | Not started |
-| PCB | Not started |
-| Firmware | Not started |
+| Custom electronics | Deferred — see D-004. Avionics are off-the-shelf and non-programmable. |
 | BOM sourcing | Not started — every cost, vendor, and link is TBD |
 | Flight testing | None |
 

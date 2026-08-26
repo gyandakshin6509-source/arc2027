@@ -57,7 +57,42 @@ and 20% infill, against a solid volume of about 151 g.
 
 ---
 
+## D-004 — Flight data logger deferred; PCB and firmware directories removed
+
+**Date:** 2026-08-25
+
+**Decision.** Revision G carries no custom electronics. The `PCB/` and `firmware/`
+directories have been deleted rather than left as empty placeholders.
+
+**Reasoning.** A student-designed flight data logger is legal under ARC §4.11 as a
+non-scoring device and would strengthen the submission. But the egg capsule is undesigned
+at 170 g and owns the critical path, and empty directories in a funding submission read as
+abandoned scope rather than planned scope. Deleting them and recording the deferral here
+states the position deliberately. Revisit once the capsule mass is measured.
+
+**Consequence.** Avionics stay off-the-shelf: PerfectFlite Pnut and Jolly Logic Chute
+Release, neither programmable.
+
+---
+
 ## Open — not yet decided
+
+### Egg capsule structure — the largest open item in the project
+
+The capsule exists in the OpenRocket model as a **lumped mass component**: 170 g, 130 mm
+long, 61 mm envelope, at station top+20 mm, described as "2 eggs + foam + bulkheads".
+
+That is a mass budget, not a design. There is **no bulkhead geometry, no foam
+specification, no retention method and no CAD.** At 170 g it is the second-heaviest item
+in the vehicle, and the CG, both stability margins and the 42 g nose ballast are all
+derived assuming that number holds. If the built capsule lands at 200 g, the CG moves, the
+margin moves, and ballast tuned to the foot is wrong.
+
+This outranks every other open item on this page, including the jig parameters below — the
+jig at least has CAD.
+
+<!-- resolve by: designing the bulkheads and selecting the foam, weighing the built
+     assembly, then feeding the measured mass back into the model and re-reading apogee -->
 
 ### Fin cant angle
 

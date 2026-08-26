@@ -23,9 +23,11 @@ treated as wrong.
 
 | Item | Value |
 |---|---|
-| Forward airframe | 66 mm, T-80 |
-| Aft airframe | 54 mm |
-| Transition | 66 → 54 mm boattail |
+| Overall length | 780 mm (230 + 320 + 50 + 180) |
+| Nose cone | Ogive, 230 mm, Ø66 mm aft, 1.5 mm polystyrene, 35 mm shoulder |
+| Forward airframe | 66 mm, T-80, 320 mm |
+| Aft airframe | 54 mm, 180 mm |
+| Transition | 66 → 54 mm boattail, 50 mm |
 | Motor mount | 24 mm |
 | Motor | AeroTech F30FJ-6, 47.0 N·s, 24 × 95 mm |
 | Fins | 3 × G10, 1.6 mm, on the 54 mm aft tube |
@@ -34,9 +36,20 @@ treated as wrong.
 | Liftoff mass | ~571–574 g |
 | Static stability | 1.78 cal liftoff, 2.06 cal burnout |
 | Nose ballast | 42 g |
+| Egg capsule | 170 g, 130 mm × 61 mm, at top+20 mm — **lumped mass component, not a modelled structure** |
 | Altimeter | PerfectFlite Pnut, 7.4 g |
 | Recovery | 22 in nylon parachute + Jolly Logic Chute Release |
 | Rail | 6 ft, 14.0 m/s exit velocity |
+
+## Known issues with the current file
+
+- **The comment header says "rev E" but the contents are revision G.** Fix before the file
+  is cited in a submission.
+- **Apogee, duration and max velocity have not been re-read since rev E.** Rev G dropped
+  50 g of ballast and added ~42 g across the Pnut, harness and finish (573 g → 571 g), so
+  the change is expected to be small — but it has not been measured.
+- **The egg capsule is a lumped 170 g mass**, so every mass-and-balance output inherits a
+  placeholder.
 
 ## Working rules
 
