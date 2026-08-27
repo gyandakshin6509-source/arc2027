@@ -1,76 +1,62 @@
 # Devlog
 
-One file per work session: `YYYY-MM-DD.md`.
+One file per work session, named `YYYY-MM-DD.md`.
 
-If two sessions land on the same day, append to that day's file rather than creating a
-second one. Do not backfill sessions you did not record — a gap is honest, an invented
-entry is not.
+Two sessions on the same day go in the same file. Don't backfill sessions you didn't write
+down at the time — a gap is honest, an invented entry isn't.
 
-The point of this log is that six months from now, a number in the repo can be traced back
-to the session that changed it and the reason it changed.
+The reason this exists: six months from now someone will find a number in this repo and
+want to know where it came from and why it changed. That's what these entries are for.
+
+## Keep personal stuff out
+
+This repo is public, and the devlog is the most likely place for something personal to slip
+in, because it's the one part written quickly and informally. Before committing, check
+there are no full legal names — first names or initials are fine — no school name, no home
+or launch site address, no phone numbers or emails, and no photos showing faces, house
+numbers, plates or school signage.
+
+Screenshots give away more than people expect. An OpenRocket or Fusion window usually has a
+full file path in the title bar with a username in it, and a desktop capture picks up
+whatever else was open. Crop them.
+
+None of this is about hiding the work. The work is the thing we're publishing. Our personal
+details just aren't part of it.
 
 ## Template
-
-Copy this into a new `YYYY-MM-DD.md`:
 
 ```markdown
 # YYYY-MM-DD
 
-## Worked on
+## What we did
 
-- What was actually done this session.
+## What we decided
 
-## Decisions made
-
-- Decision, and the reasoning behind it.
-- Anything substantial gets its own entry in ../docs/design-decisions.md; link it here.
-- If nothing was decided, write "None."
+Anything substantial also gets an entry in ../docs/design-decisions.md — link it from here.
+If nothing was decided, say so.
 
 ## Numbers that changed
 
-| Quantity | Was | Now | Source |
+| What | Was | Now | Where it came from |
 |---|---|---|---|
 |  |  |  |  |
 
-<!-- "Source" means where the new number came from: an OpenRocket run, a scale reading,
-     a measurement off a printed part, a datasheet. A number with no source does not go
-     in the table. -->
+Say where each new number came from: a sim run, a scale, a measurement off a printed part,
+a datasheet. If it doesn't have a source it doesn't go in the table.
 
 If a flight number changed, update ../docs/openrocket-extract.md in the same commit.
 
 ## Screenshots
 
-<!-- Commit images under docs/img/ and link them. Say what each one shows. -->
+## Next
 
-## Open / next
-
-- What is blocked, and what the next session should pick up.
+What's blocked, and what to pick up next session.
 ```
 
-## Keep personal details out
+## A few conventions
 
-This repository is public. Devlog entries are freeform prose written quickly, which makes
-them the most likely place for something personal to end up. Before committing an entry,
-check that it does not contain:
-
-- Full legal names. Use first names or initials.
-- The school name, the team's home address, or a launch site address. "The field" and
-  "the lab" are specific enough for a log.
-- Phone numbers, emails, or handles for anyone on the team.
-- Photographs that show faces, house numbers, vehicle plates, or school signage.
-
-Screenshots leak more than people expect: an OpenRocket or Fusion window will often show a
-full filesystem path containing a username, and a desktop capture shows whatever else was
-open. Crop to the content.
-
-None of this is about hiding the work — it is that the work is the thing being published,
-and the team's personal details are not part of it.
-
-## Conventions
-
-- Present tense for what you did, past tense for what you found. Keep it short.
-- Record the numbers that *changed*, not every number that exists — the current value of
-  anything lives in the design documents, not here.
-- Link out rather than duplicate: [`../docs/design-decisions.md`](../docs/design-decisions.md),
-  [`../docs/compliance.md`](../docs/compliance.md),
-  [`../docs/openrocket-extract.md`](../docs/openrocket-extract.md).
+Keep it short. Record the numbers that *changed*, not every number that exists — current
+values live in the design docs, not here. And link out instead of copying things across, to
+[`../docs/design-decisions.md`](../docs/design-decisions.md),
+[`../docs/compliance.md`](../docs/compliance.md) and
+[`../docs/openrocket-extract.md`](../docs/openrocket-extract.md).

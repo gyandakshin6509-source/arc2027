@@ -1,25 +1,25 @@
 category,item,spec,qty,unit_cost_usd,vendor,url,status,notes
-# ARC 2027 vehicle revision G. Nothing here has been sourced: every unit_cost_usd/vendor/url is TBD.
-# EXCLUDED BY DESIGN: rocket motors (AeroTech F30FJ-6) igniters and hen's eggs are deliberately NOT
-# in this BOM because they are funded separately from the hardware budget. Do not add them.
-# NOTE: the 170 g egg capsule budget in the sim INCLUDES the two eggs. The capsule rows below cover
-# only the foam and bulkheads, so their combined mass target is less than 170 g.
-# Rows tagged UNDESIGNED exist as a lumped mass in the OpenRocket model but have no geometry
-# no material spec and no CAD. They are the largest sourcing risk in this BOM.
-# This BOM is not yet complete: it covers the components named in the revision G configuration only.
-Airframe,Nose cone,Ogive 230 mm; 66 mm dia aft; 1.5 mm wall polystyrene; 35 mm aft shoulder,1,TBD,TBD,TBD,not ordered,Fully specified in the OpenRocket model. Carries the 42 g nose ballast.
-Airframe,Forward airframe tube,66 mm OD T-80; 320 mm long,1,TBD,TBD,TBD,not ordered,Primary section. 320 mm satisfies the >=300 mm ARC dimension rule.
-Airframe,Boattail transition,66 mm to 54 mm; 50 mm long,1,TBD,TBD,TBD,not ordered,Material and manufacturing method TBD.
-Airframe,Aft airframe tube,54 mm OD; 180 mm long,1,TBD,TBD,TBD,not ordered,Carries the fins. OD differs from the forward tube by more than the 9 mm minimum.
+# Parts list for revision G. We haven't sourced any of it yet - every price vendor and link is TBD.
+# Motors igniters and eggs are deliberately not here. They come out of a separate budget so keeping
+# them off this list stops us double-counting. Don't add them.
+# Careful with the egg capsule: the 170 g budget in the sim includes the two eggs themselves so the
+# foam and bulkheads together have to come in under that.
+# Rows marked UNDESIGNED are in the sim as a lumped mass but have no geometry no material and no CAD.
+# They're the biggest sourcing risk on this list.
+# This isn't a complete list yet - it covers what's named in the rev G configuration and no more.
+Airframe,Nose cone,Ogive 230 mm; 66 mm dia aft; 1.5 mm wall polystyrene; 35 mm aft shoulder,1,TBD,TBD,TBD,not ordered,Fully specified in the model. Holds the 42 g of nose ballast.
+Airframe,Forward airframe tube,66 mm OD T-80; 320 mm long,1,TBD,TBD,TBD,not ordered,The primary section. 320 mm clears the 300 mm minimum in the rules.
+Airframe,Boattail transition,66 mm to 54 mm; 50 mm long,1,TBD,TBD,TBD,not ordered,Material and how we make it are both TBD.
+Airframe,Aft airframe tube,54 mm OD; 180 mm long,1,TBD,TBD,TBD,not ordered,Carries the fins. Far enough from 66 mm to satisfy the 9 mm rule.
 Airframe,Motor mount tube,24 mm; length TBD,1,TBD,TBD,TBD,not ordered,Sized for the 24 x 95 mm motor. Retention method TBD.
-Aerostructure,G10 fin blank,1.6 mm thick,3,TBD,TBD,TBD,not ordered,Planform 95 mm root chord / 40 mm tip chord / 55 mm semispan / 50 mm sweep. Cant 0.0 deg in sim; 0.5 deg under consideration and not committed. Sheet stock size TBD.
-Payload,Egg capsule bulkheads,TBD,TBD,TBD,TBD,TBD,not ordered,UNDESIGNED - no geometry no material no CAD. Part of the 170 g / 130 mm x 61 mm lumped capsule budget at station top+20 mm. Second-heaviest item in the vehicle; every CG stability and ballast figure depends on that 170 g holding.
-Payload,Egg capsule foam,TBD,TBD,TBD,TBD,TBD,not ordered,UNDESIGNED - no material spec and no retention method. Must fully enclose two 55-63 g eggs per the ARC payload rule. See the bulkhead row for the mass risk.
-Mass,Nose ballast,42 g,1,TBD,TBD,TBD,not ordered,Mass is fixed at 42 g. Ballast material and retention method TBD. Sensitive to the egg capsule mass resolving away from 170 g.
-Avionics,PerfectFlite Pnut altimeter,7.4 g,1,TBD,TBD,TBD,not ordered,On the ARC approved altimeter list.
-Recovery,Nylon parachute,22 in,1,TBD,TBD,TBD,not ordered,Sized against the 37-40 s duration band. Line length and attachment TBD.
-Recovery,Jolly Logic Chute Release,TBD,1,TBD,TBD,TBD,not ordered,Delays parachute opening to trim descent duration. Release altitude setting TBD.
-Structure,Plywood stock,TBD,TBD,TBD,TBD,TBD,not ordered,IMPLIED - plywood is referenced in the fin can decision as already being in the design but its thickness grade and the parts made from it are unspecified.
-Consumable,Epoxy,TBD,TBD,TBD,TBD,TBD,not ordered,IMPLIED - referenced in the fin alignment jig purpose. Type and cure schedule TBD.
-Hardware,Rail guidance hardware,TBD,TBD,TBD,TBD,TBD,not ordered,IMPLIED - a 6 ft rail is used for the 14.0 m/s rail exit figure but no rail button or launch lug is specified in revision G.
-Tooling,PETG filament,TBD,TBD,TBD,TBD,TBD,not ordered,For the fin alignment jig. Approximately 50 g consumed per print at 4 walls and 20 percent infill in about 4 hours; solid volume would be about 151 g. Tooling only - zero flight mass.
+Aerostructure,G10 fin blank,1.6 mm thick,3,TBD,TBD,TBD,not ordered,Planform is 95 root / 40 tip / 55 semispan / 50 sweep in mm. Cant is 0.0 deg in the sim; 0.5 deg is under consideration but not committed. Sheet size to buy is TBD.
+Payload,Egg capsule bulkheads,TBD,TBD,TBD,TBD,TBD,not ordered,UNDESIGNED - nothing drawn no material chosen no CAD. Part of the 170 g / 130 mm x 61 mm capsule budget at top+20 mm. Second heaviest thing in the rocket and the CG stability margins and nose ballast all assume that 170 g is right.
+Payload,Egg capsule foam,TBD,TBD,TBD,TBD,TBD,not ordered,UNDESIGNED - no material picked and no retention method. Has to fully enclose two 55-63 g eggs to satisfy the payload rule. Same mass risk as the bulkheads.
+Mass,Nose ballast,42 g,1,TBD,TBD,TBD,not ordered,42 g is fixed. Material and how it's retained are TBD. This is the number that moves if the capsule mass turns out not to be 170 g.
+Avionics,PerfectFlite Pnut altimeter,7.4 g,1,TBD,TBD,TBD,not ordered,On the ARC approved list.
+Recovery,Nylon parachute,22 in,1,TBD,TBD,TBD,not ordered,Sized to land inside the 37-40 s band. Line length and attachment TBD.
+Recovery,Jolly Logic Chute Release,TBD,1,TBD,TBD,TBD,not ordered,Holds the chute closed to trim the descent. Release altitude TBD.
+Structure,Plywood stock,TBD,TBD,TBD,TBD,TBD,not ordered,IMPLIED - the fin can decision refers to plywood already being in the design but we never wrote down the thickness the grade or which parts are made from it.
+Consumable,Epoxy,TBD,TBD,TBD,TBD,TBD,not ordered,IMPLIED - the jig exists to hold fins while this cures but which epoxy and the cure schedule are both TBD.
+Hardware,Rail guidance hardware,TBD,TBD,TBD,TBD,TBD,not ordered,IMPLIED - we quote 14.0 m/s off a 6 ft rail but there's no rail button or launch lug anywhere in rev G.
+Tooling,PETG filament,TBD,TBD,TBD,TBD,TBD,not ordered,For the fin jig. About 50 g per print at 4 walls and 20 percent infill roughly 4 hours. Solid volume would be about 151 g. Tooling only so it adds no flight mass.

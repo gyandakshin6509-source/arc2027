@@ -1,62 +1,63 @@
 # Simulation
 
-The OpenRocket flight model for the ARC 2027 vehicle.
+The OpenRocket model for the rocket.
 
-## Contents
-
-| File | Description |
+| File | |
 |---|---|
-| `ARC2027_OPTIMISED_T80-forward.ork` | Revision G flight model. |
+| `ARC2027_OPTIMISED_T80-forward.ork` | Revision G |
 
-## This directory is the source of truth for flight numbers
+## This is where flight numbers come from
 
-Apogee, flight duration, max velocity, CG, CP, and Cd come from this model and nowhere
-else. They are read out **by hand** into
-[`../docs/openrocket-extract.md`](../docs/openrocket-extract.md), and
-[`../docs/compliance.md`](../docs/compliance.md) reads from that transcription.
+Apogee, duration, max velocity, CG, CP and Cd all come out of this model and nowhere else.
+We read them by hand into [`../docs/openrocket-extract.md`](../docs/openrocket-extract.md),
+and [`../docs/compliance.md`](../docs/compliance.md) reads from that.
 
-Nothing in this repository recomputes or re-derives those values. If a number appears in
-a document without a matching line in the extract file, it is unsourced and should be
-treated as wrong.
+Nothing in the repo recalculates any of it. So if you find a number somewhere without a
+matching line in the extract file, treat it as wrong until someone checks.
 
-## Model configuration — revision G
+## What's in the model
 
-| Item | Value |
+| | |
 |---|---|
 | Overall length | 780 mm (230 + 320 + 50 + 180) |
 | Nose cone | Ogive, 230 mm, Ø66 mm aft, 1.5 mm polystyrene, 35 mm shoulder |
-| Forward airframe | 66 mm, T-80, 320 mm |
-| Aft airframe | 54 mm, 180 mm |
+| Forward airframe | 66 mm T-80, 320 mm |
 | Transition | 66 → 54 mm boattail, 50 mm |
+| Aft airframe | 54 mm, 180 mm |
 | Motor mount | 24 mm |
 | Motor | AeroTech F30FJ-6, 47.0 N·s, 24 × 95 mm |
-| Fins | 3 × G10, 1.6 mm, on the 54 mm aft tube |
+| Fins | Three G10, 1.6 mm, on the 54 mm tube |
 | Fin planform | 95 / 40 / 55 / 50 mm (root / tip / semispan / sweep) |
-| Fin cant in the model | 0.0° — the 0.5° variant is **not committed** and is **not** in this file |
+| Fin cant | 0.0°. The 0.5° version isn't committed and isn't in this file |
 | Liftoff mass | ~571–574 g |
-| Static stability | 1.78 cal liftoff, 2.06 cal burnout |
+| Stability | 1.78 cal liftoff, 2.06 cal burnout |
 | Nose ballast | 42 g |
-| Egg capsule | 170 g, 130 mm × 61 mm, at top+20 mm — **lumped mass component, not a modelled structure** |
+| Egg capsule | 170 g, 130 × 61 mm, at top+20 mm — a lumped mass, not a modelled structure |
 | Altimeter | PerfectFlite Pnut, 7.4 g |
-| Recovery | 22 in nylon parachute + Jolly Logic Chute Release |
-| Rail | 6 ft, 14.0 m/s exit velocity |
+| Recovery | 22 in nylon chute, Jolly Logic Chute Release |
+| Rail | 6 ft, 14.0 m/s exit |
 
-## Known issues with the current file
+## Things wrong with the file right now
 
-- **The comment header says "rev E" but the contents are revision G.** Fix before the file
-  is cited in a submission.
-- **Apogee, duration and max velocity have not been re-read since rev E.** Rev G dropped
-  50 g of ballast and added ~42 g across the Pnut, harness and finish (573 g → 571 g), so
-  the change is expected to be small — but it has not been measured.
-- **The egg capsule is a lumped 170 g mass**, so every mass-and-balance output inherits a
-  placeholder.
+The comment header inside it still says "rev E" even though the contents are rev G. Fix
+that before it gets cited anywhere.
 
-## Working rules
+Apogee, duration and max velocity haven't been re-read since rev E. The change should be
+small — 50 g of ballast came out, about 42 g went back in across the Pnut, harness and
+finish, so 573 g became 571 g — but small-and-unmeasured is still unmeasured.
 
-- Commit the `.ork` itself. `*.ork.bak` is gitignored — never commit a backup as if it
-  were the model.
-- One configuration per commit. If you simulate a variant (a different cant, a different
-  chute), say so in the commit message and in a [devlog](../devlog/) entry.
-- When the model changes in a way that moves any number in
-  [`../docs/openrocket-extract.md`](../docs/openrocket-extract.md), re-extract in the same
-  commit. A stale extract is worse than an empty one.
+The egg capsule is a 170 g lumped mass, so everything the model says about mass and balance
+is sitting on a placeholder.
+
+## How to work on it
+
+Commit the `.ork` itself. `*.ork.bak` is gitignored, so don't commit a backup thinking it's
+the model.
+
+One configuration per commit. If you simulate a variant — a different cant, a different
+chute — say so in the commit message and write it up in a [devlog](../devlog/) entry.
+
+If you change the model in a way that moves any number in
+[`../docs/openrocket-extract.md`](../docs/openrocket-extract.md), re-read it in the same
+commit. A stale extract is worse than an empty one, because an empty one is obviously
+empty.

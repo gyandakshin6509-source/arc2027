@@ -1,147 +1,123 @@
-# ARC 2027 — Rocket Design Repository
+# ARC 2027
 
-Design, simulation, and build records for a American Rocketry Challenge 2027 entry.
-The vehicle is a single-stage, dual-diameter airframe carrying two raw hen's eggs to a
-target apogee of 800 ft, recovered under a parachute with a delayed-deployment release
-so that total flight duration lands inside the scored 37–40 s band. This repository holds
-the OpenRocket model, the CAD sources for printed and machined parts, the bill of
-materials, a compliance matrix against the ARC 2027 rules, and a dated devlog. Vehicle
-revision G is the current configuration; nothing has been flown yet.
+We're building a rocket for the American Rocketry Challenge 2027. It carries two raw hen's
+eggs to 800 feet and brings them back unbroken, and it has to be back on the ground
+somewhere between 37 and 40 seconds after launch. Every foot off the altitude target costs
+a point. Every second outside the time band costs four. Most of the design is a fight
+between those two numbers.
 
----
+This repo has the OpenRocket model, CAD for the parts we make ourselves, the parts list, a
+rule-by-rule compliance check, and a build log. The current design is revision G. Nothing
+has flown yet.
 
-## Competition constraints (ARC 2027)
+## The rules we're designing against
 
-| Constraint | Rule value |
+| Constraint | Value |
 |---|---|
 | Max liftoff mass | 650 g |
 | Min overall length | 650 mm |
 | Max total impulse | 80 N·s |
 | Staging | Single stage |
 | Motor class | F or lower |
-| Airframe diameters | Must use two different tube diameters |
-| Primary section | ≥66 mm OD and ≥300 mm long |
+| Airframe diameters | Two different tube diameters required |
+| Primary section | ≥66 mm OD, ≥300 mm long |
 | Other sections | ≥9 mm different in OD |
 | Payload | Two raw hen's eggs, 55–63 g each, fully enclosed |
-| Qualification altitude target | 800 ft |
-| Finals altitude target | 775–825 ft |
-| Duration target | 37–40 s (zero penalty inside the band) |
-| Altitude score | 1 point per foot of error |
-| Duration score | 4 points per second outside the band |
-| Approved altimeters | PerfectFlite Pnut or Firefly; Jolly Logic Altimeter One or Two |
+| Qualification altitude | 800 ft |
+| Finals altitude | 775–825 ft |
+| Duration | 37–40 s, no penalty inside the band |
+| Altitude scoring | 1 point per foot of error |
+| Duration scoring | 4 points per second outside the band |
+| Allowed altimeters | PerfectFlite Pnut or Firefly, Jolly Logic Altimeter One or Two |
 
-### Key dates
+Dates that matter: registration closes 6 December 2026, qualification flights are due
+4 April 2027, and the finals are 15 May 2027.
 
-| Milestone | Date |
-|---|---|
-| Registration closes | 6 December 2026 |
-| Qualification flights due | 4 April 2027 |
-| Finals | 15 May 2027 |
+## Revision G
 
----
-
-## Current vehicle — revision G
-
-| Item | Value |
+| | |
 |---|---|
 | Overall length | 780 mm (230 nose + 320 forward + 50 transition + 180 aft) |
-| Nose cone | Ogive, 230 mm, Ø66 mm aft, 1.5 mm polystyrene wall, 35 mm aft shoulder |
-| Forward airframe | 66 mm, T-80, 320 mm |
-| Aft airframe | 54 mm, 180 mm |
+| Nose cone | Ogive, 230 mm, Ø66 mm at the aft end, 1.5 mm polystyrene wall, 35 mm shoulder |
+| Forward airframe | 66 mm T-80, 320 mm |
 | Transition | 66 → 54 mm boattail, 50 mm |
+| Aft airframe | 54 mm, 180 mm |
 | Motor mount | 24 mm |
 | Motor | AeroTech F30FJ-6, 47.0 N·s, 24 × 95 mm |
-| Fins | 3 × G10, 1.6 mm thick, mounted on the 54 mm aft tube |
-| Fin planform | 95 mm root chord, 40 mm tip chord, 55 mm semispan, 50 mm sweep |
-| Fin cant | 0.0° in the sim; 0.5° under consideration, **not committed** |
+| Fins | Three G10 fins, 1.6 mm thick, on the 54 mm tube |
+| Fin planform | 95 mm root chord, 40 mm tip, 55 mm semispan, 50 mm sweep |
+| Fin cant | 0.0° in the sim. We're thinking about 0.5° but haven't committed |
 | Liftoff mass | ~571–574 g |
-| Static stability | 1.78 cal at liftoff, 2.06 cal at burnout |
+| Stability | 1.78 cal at liftoff, 2.06 cal at burnout |
 | Nose ballast | 42 g |
-| Payload | Egg capsule, 170 g, 130 mm × 61 mm envelope, at station top+20 mm — **lumped mass only, undesigned** |
+| Payload | Egg capsule, 170 g, 130 × 61 mm, at top+20 mm — a mass placeholder, not a real design yet |
 | Altimeter | PerfectFlite Pnut, 7.4 g |
-| Recovery | 22 in nylon parachute with Jolly Logic Chute Release |
-| Rail exit velocity | 14.0 m/s off a 6 ft rail |
+| Recovery | 22 in nylon chute with a Jolly Logic Chute Release |
+| Rail exit | 14.0 m/s off a 6 ft rail |
 
----
-
-## Repository layout
+## Layout
 
 ```
-.
-├── README.md                   this file
-├── LICENSE                     MIT
-├── .gitignore
-├── BOM.csv                     bill of materials; costs and vendors not yet sourced
-├── CAD/                        Fusion 360 sources and STEP exports
-├── sim/                        OpenRocket model
-├── docs/
-│   ├── design-decisions.md     decision log
-│   ├── compliance.md           ARC 2027 rule matrix
-│   └── openrocket-extract.md   hand-read values from the sim
-└── devlog/                     one YYYY-MM-DD.md per work session
+README.md
+LICENSE                     MIT
+.gitignore
+BOM.csv                     parts list, nothing sourced yet
+CAD/                        Fusion sources and STEP exports
+sim/                        the OpenRocket model
+docs/
+  design-decisions.md       why things are the way they are
+  compliance.md             rule-by-rule check
+  openrocket-extract.md     numbers read out of the sim by hand
+devlog/                     one file per work session
 ```
 
----
+## Where we are
 
-## Build status
-
-| Area | Status |
+| | |
 |---|---|
-| OpenRocket model | Revision G simulated; values pending hand extraction |
+| OpenRocket model | Rev G is built. Apogee and duration still need re-reading |
+| Egg capsule | Not designed. 170 g placeholder in the sim, nothing else. Biggest open problem we have |
 | Airframe | Not built |
-| Egg capsule | **Undesigned.** 170 g lumped mass in the sim; no geometry, no foam spec, no retention, no CAD. Largest open risk in the project. |
-| Fin alignment jig | Designed in Fusion 360; slot clearance and cant parameters open; not printed |
+| Fin jig | Modelled in Fusion. Slot clearance and cant still open. Not printed |
 | Fins | Not cut |
-| Recovery | Components selected, not sourced |
+| Recovery | Parts chosen, none bought |
 | Electronics bay | Not started |
-| Custom electronics | Deferred — see D-004. Avionics are off-the-shelf and non-programmable. |
-| BOM sourcing | Not started — every cost, vendor, and link is TBD |
-| Flight testing | None |
-
----
+| Custom electronics | Deferred, see D-004. The avionics we're using aren't programmable |
+| Parts sourcing | Not started. Every price, vendor and link in the BOM is still TBD |
+| Flights | None |
 
 ## Simulation and analysis
 
-The flight model lives in [`sim/`](sim/) as an OpenRocket file. OpenRocket is the single
-source of truth for apogee, duration, stability, and velocity; those numbers are read out
-by hand and transcribed into [`docs/openrocket-extract.md`](docs/openrocket-extract.md),
-which is currently an empty template. Nothing in this repository recomputes them.
+The flight model is in [`sim/`](sim/). It's the only place apogee, duration, stability, CG,
+CP and Cd come from. We read those out by hand into
+[`docs/openrocket-extract.md`](docs/openrocket-extract.md) and everything else reads from
+that. Nothing in this repo recalculates them, so if a number shows up somewhere without a
+matching line in the extract file, assume it's wrong.
 
-Two scored quantities drive the design, and they trade against each other:
+The extract file is mostly empty right now, and there's a catch worth knowing about: the
+apogee and duration figures we've been quoting are revision E's, not G's. Rev G dropped
+50 g of ballast and added about 42 g back across the Pnut, harness and finish, so liftoff
+went 573 → 571 g. That should only move apogee a few feet. But "should only move it a few
+feet" isn't a number you put on a submission when the scoring is a point per foot, so it
+needs re-reading properly.
 
-- **Altitude**, at 1 point per foot of error against the 800 ft target. Mass is the lever
-  here — see the fin can decision in
-  [`docs/design-decisions.md`](docs/design-decisions.md), where added mass was costed in
-  feet of altitude directly.
-- **Duration**, at 4 points per second outside the 37–40 s band, governed by the
-  parachute and the Chute Release deployment altitude.
+The rule-by-rule check lives in [`docs/compliance.md`](docs/compliance.md). Anything that
+depends on a number we haven't pulled out of the sim yet is marked TBD rather than guessed.
 
-Rule conformance is tracked line by line in
-[`docs/compliance.md`](docs/compliance.md). Rows that depend on numbers not yet extracted
-from the sim are marked TBD rather than estimated.
+## Pictures
 
----
+<!-- fill this in once we have renders exported and the Fusion doc shared -->
 
-## Screenshots and CAD links
+Screenshots — TBD. We want the OpenRocket side profile, the stability-vs-time plot, the
+drag plot, and a render of the fin jig. Put images in `docs/img/` and link them here.
 
-<!-- PLACEHOLDER BLOCK — fill once renders are exported and the Fusion doc is shared -->
+Fusion 360 public link — TBD. Needs the document published with a public link, then the
+URL pasted here and in [`CAD/README.md`](CAD/README.md).
 
-> **Screenshots — TBD.**
-> Add: OpenRocket side profile, stability-vs-time plot, drag plot, and a render of the
-> fin alignment jig. Commit images under `docs/img/` and link them here.
-
-> **Before committing any image:** crop out window title bars and file paths — they
-> usually contain a username — and check that no faces, signage, or addresses are visible.
-> See [`devlog/README.md`](devlog/README.md).
-
-> **Fusion 360 public share link — TBD.**
-> Requires the Fusion document to be published with a public link, then the URL pasted
-> here and into [`CAD/README.md`](CAD/README.md).
-
-<!-- END PLACEHOLDER BLOCK -->
-
----
+Before committing any image, crop out title bars and file paths — they usually have a
+username in them — and check nothing shows faces, signage or addresses. There's more on
+this in [`devlog/README.md`](devlog/README.md).
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE).

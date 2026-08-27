@@ -1,121 +1,104 @@
-# Design Decisions
+# Design decisions
 
-One entry per decision. Each entry records what was decided and the reasoning that was
-actually given at the time. Reasoning is not reconstructed or extended after the fact — if
-a decision was made without a recorded rationale, that is stated rather than filled in.
+Why things are the way they are. One entry per decision, with the actual reasoning we had
+at the time — not a tidied-up version invented later. Where we didn't record a reason, it
+says so instead of making one up.
 
-Entries are newest-last. When a decision is revisited, add a new entry rather than editing
-the old one, and link back to it.
+If we revisit something, add a new entry and link back rather than editing the old one.
 
----
+## D-001 — Fin planform
 
-## D-001 — Fin planform frozen
+Frozen at 95 mm root chord, 40 mm tip, 55 mm semispan, 50 mm sweep. Three G10 fins, 1.6 mm
+thick, on the 54 mm aft tube.
 
-**Date:** TBD <!-- date this decision was made is not recorded -->
+Reasoning: not recorded. <!-- ask whoever made the call, or just mark it as inherited -->
+Date: TBD.
 
-**Decision.** The fin planform is frozen at 95 mm root chord, 40 mm tip chord, 55 mm
-semispan, 50 mm sweep. Three fins, G10, 1.6 mm thick, mounted on the 54 mm aft tube.
+Don't change it casually. The 1.78 cal and 2.06 cal stability numbers assume this planform,
+so touching it means re-running everything.
 
-**Reasoning.** Not recorded. <!-- capture the rationale from whoever made the call, or mark it as a frozen input -->
+## D-002 — No printed fin can, use an external jig
 
-**Status.** Frozen. Changing the planform invalidates the revision G stability figures
-(1.78 cal at liftoff, 2.06 cal at burnout).
+We looked at printing a PETG fin can and decided against it.
 
----
+PETG is 1.87× the density of the plywood already in the design, and every fin-can layout we
+tried added somewhere between 14 and 22 g. At roughly 1.6 ft of altitude per gram that's
+23–35 ft, and altitude scores a point per foot. Easier assembly wasn't worth paying that.
 
-## D-002 — Printed PETG fin can rejected in favour of an external alignment jig
+So the fins get held by an external jig that comes off once the epoxy has cured — zero
+flight mass. That's what makes D-003 necessary.
 
-**Date:** TBD <!-- date not recorded -->
+Date: TBD.
 
-**Decision.** No printed PETG fin can. The fins are aligned during epoxy cure with an
-external jig, which is removed afterwards and carries no flight mass.
+## D-003 — Jig OD is 65 mm, not 100 mm
 
-**Reasoning.** PETG is 1.87× the density of the plywood already in the design. Every
-fin-can architecture evaluated added 14–22 g. At roughly 1.6 ft of altitude per gram, that
-is 23–35 ft of altitude, and altitude is scored at 1 point per foot of error. The penalty
-was not worth the assembly convenience.
+We considered a 100 mm jig and went with 65 mm instead.
 
-**Consequence.** The alignment jig becomes a required tool rather than a flight part. See
-D-003.
+Cant error is bounded by how *long* the slot is, not how *deep*. At 130 mm of slot length
+and 0.15 mm of clearance you get ±0.066°, which is already far better than the 0.5° cant
+we'd be trying to build in. Extra depth buys nothing. The 100 mm version just burned 5× the
+filament for the same precision.
 
----
+Prints in about 4 hours and uses roughly 50 g of PETG at 4 walls and 20% infill. Solid
+volume would have been about 151 g.
 
-## D-003 — Jig outer diameter set to 65 mm, not 100 mm
+Date: TBD.
 
-**Date:** TBD <!-- date not recorded -->
+## D-004 — Flight data logger deferred, PCB and firmware directories deleted
 
-**Decision.** The fin alignment jig's `jig_od` parameter is 65 mm. A 100 mm variant was
-considered and rejected.
+Revision G has no custom electronics, and we've removed the empty `PCB/` and `firmware/`
+directories rather than leaving them sitting there.
 
-**Reasoning.** Cant error is bounded by slot **length**, not slot **depth**. At 130 mm of
-slot length and 0.15 mm of clearance, the bound is ±0.066° — already far better than the
-0.5° cant being built in, so extra depth buys no useful precision. The 100 mm diameter
-cost 5× the filament for that non-gain.
+A student-built flight data logger would be legal under ARC §4.11 as a non-scoring device
+and would genuinely strengthen the project. But the egg capsule is still undesigned and
+it's on the critical path, and empty directories in a funding submission look like scope
+we gave up on rather than scope we're saving for later. Better to say plainly that we
+deferred it. Worth revisiting once the capsule is built and weighed.
 
-**Consequence.** Jig prints in roughly 4 hours and consumes about 50 g of PETG at 4 walls
-and 20% infill, against a solid volume of about 151 g.
+That leaves the avionics off-the-shelf: a PerfectFlite Pnut and a Jolly Logic Chute
+Release, neither of which is programmable.
 
----
+Date: 2026-08-25.
 
-## D-004 — Flight data logger deferred; PCB and firmware directories removed
+## Still open
 
-**Date:** 2026-08-25
+### The egg capsule — this is the big one
 
-**Decision.** Revision G carries no custom electronics. The `PCB/` and `firmware/`
-directories have been deleted rather than left as empty placeholders.
+At the moment the capsule is a single lumped mass in OpenRocket: 170 g, 130 mm long, 61 mm
+envelope, sitting at top+20 mm, labelled "2 eggs + foam + bulkheads."
 
-**Reasoning.** A student-designed flight data logger is legal under ARC §4.11 as a
-non-scoring device and would strengthen the submission. But the egg capsule is undesigned
-at 170 g and owns the critical path, and empty directories in a funding submission read as
-abandoned scope rather than planned scope. Deleting them and recording the deferral here
-states the position deliberately. Revisit once the capsule mass is measured.
+That's a mass budget, not a design. No bulkhead geometry, no foam picked, no retention
+method, no CAD at all. And it's 170 g, which makes it the second heaviest thing in the
+rocket. The CG, both stability margins and the 42 g of nose ballast all assume that number
+holds. If the real thing comes in at 200 g once we build it, the CG moves, the margin
+moves, and ballast we tuned to the foot is wrong.
 
-**Consequence.** Avionics stay off-the-shelf: PerfectFlite Pnut and Jolly Logic Chute
-Release, neither programmable.
+This matters more than anything else on this page. The jig at least has CAD.
 
----
+<!-- to close: design the bulkheads, pick the foam, build it, weigh it, put the measured
+     mass back in the model, re-read apogee -->
 
-## Open — not yet decided
+### Fin cant
 
-### Egg capsule structure — the largest open item in the project
+The sim has 0.0°. We're considering 0.5° but haven't committed. The jig's `cant` parameter
+stays TBD until we decide, and D-003's reasoning already assumes 0.5° is the target the jig
+has to beat.
 
-The capsule exists in the OpenRocket model as a **lumped mass component**: 170 g, 130 mm
-long, 61 mm envelope, at station top+20 mm, described as "2 eggs + foam + bulkheads".
-
-That is a mass budget, not a design. There is **no bulkhead geometry, no foam
-specification, no retention method and no CAD.** At 170 g it is the second-heaviest item
-in the vehicle, and the CG, both stability margins and the 42 g nose ballast are all
-derived assuming that number holds. If the built capsule lands at 200 g, the CG moves, the
-margin moves, and ballast tuned to the foot is wrong.
-
-This outranks every other open item on this page, including the jig parameters below — the
-jig at least has CAD.
-
-<!-- resolve by: designing the bulkheads and selecting the foam, weighing the built
-     assembly, then feeding the measured mass back into the model and re-reading apogee -->
-
-### Fin cant angle
-
-The sim currently carries **0.0°**. A **0.5°** cant is under consideration and is **not
-committed**. The jig's `cant` parameter is TBD until this is resolved, and D-003's
-reasoning already assumes 0.5° as the target the jig must beat.
-
-<!-- resolve by: deciding whether spin stabilisation is wanted, then re-running the sim at the chosen cant -->
+<!-- to close: decide whether we want spin stabilisation, then re-run the sim at whatever
+     cant we pick -->
 
 ### Jig slot clearance
 
-`slot_clear` is TBD. D-003's ±0.066° bound was computed at 0.15 mm of clearance, so
-choosing a different clearance changes that bound.
+`slot_clear` is TBD. The ±0.066° bound in D-003 was worked out at 0.15 mm, so a different
+clearance changes that number.
 
-<!-- resolve by: measuring actual G10 stock thickness against the nominal 1.6 mm, then setting clearance from the measured fit -->
+<!-- to close: measure the actual G10 stock against its nominal 1.6 mm, then set clearance
+     from the real fit -->
 
----
+## Jig parameters
 
-## Fin alignment jig — parameter record
-
-The jig is a Fusion 360 Hybrid Design part, mm/g units. It holds the three G10 fins at
-exact position and cant while epoxy cures. **It is a tool, not a flight part — zero flight
-mass.**
+The jig is a Fusion 360 Hybrid Design part in mm/g. It holds the three fins in position and
+at the right cant while the epoxy cures. It's a tool, not a flight part — no flight mass.
 
 | Parameter | Value |
 |---|---|
@@ -130,6 +113,3 @@ mass.**
 | `lip_id` | 50 |
 | `slot_clear` | TBD |
 | `cant` | TBD |
-
-Print estimate: about 50 g of PETG at 4 walls / 20% infill, roughly 4 hours. Solid volume
-is about 151 g in PETG.

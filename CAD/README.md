@@ -1,45 +1,43 @@
 # CAD
 
-Fusion 360 sources and neutral-format exports for every designed part.
+Fusion 360 sources and STEP exports for anything we design ourselves.
 
-## What lives here
+That means the fin alignment jig, and any airframe part we make rather than buy. Bought
+parts don't get modelled unless we need one for a fit check.
 
-Parts modelled for this vehicle: the fin alignment jig (tooling), and any airframe
-component that is fabricated rather than bought. Purchased components are not modelled
-here unless a fit check needs them.
+Nothing is committed yet.
 
-Current contents: nothing committed yet.
-
-| Part | Status |
+| Part | Where it's at |
 |---|---|
-| Fin alignment jig | Modelled in Fusion 360; `slot_clear` and `cant` still TBD; not exported |
+| Fin alignment jig | Modelled in Fusion. `slot_clear` and `cant` still TBD. Not exported |
 | Everything else | Not started |
 
-## Export convention
+## How to export
 
-**Every part is committed twice:**
+Every part goes in twice:
 
-| Format | Purpose |
-|---|---|
-| `.step` | Reviewable. Opens anywhere, no Autodesk account, no version lock. This is what a reviewer or a machinist reads. |
-| `.f3d` | Editable source. This is what future-you opens to change a parameter. |
+**`.step`** — the reviewable one. Opens anywhere, no Autodesk account needed, no version
+lock. This is what a reviewer or a machinist actually opens.
 
-**Export the individual component, not the whole document.** A whole-document export
-bundles unrelated bodies, produces a large opaque file, and makes a one-part change look
-like a full-assembly diff. Right-click the component in the browser and export that.
+**`.f3d`** — the editable one. This is what you open in six months when you need to change
+a parameter.
 
-Naming: `<part-name>.step` / `<part-name>.f3d`, lowercase, hyphen-separated, matching the
-component name in Fusion. Do not put a revision letter in the filename — git holds the
-history.
+Export the *component*, not the whole document. A whole-document export drags in unrelated
+bodies, makes a big opaque file, and turns a one-part tweak into a diff that looks like you
+rebuilt the entire assembly. Right-click the component in the browser and export from
+there.
 
-Units are mm/g throughout, matching the Fusion documents.
+Name files after the component in Fusion — lowercase, hyphens, no revision letter. Git
+already tracks the revisions.
 
-## Fusion 360 public share link
+Everything is mm/g, same as the Fusion documents.
 
-TBD <!-- publish the Fusion document with a public link, then paste the URL here and in the root README -->
+## Fusion public link
+
+TBD <!-- publish the document with a public link, then paste the URL here and in the root README -->
 
 ## Parameters
 
-Driving parameters for the fin alignment jig are recorded in
-[`../docs/design-decisions.md`](../docs/design-decisions.md) rather than duplicated here,
-so there is one place to change them.
+The jig's driving parameters are written down in
+[`../docs/design-decisions.md`](../docs/design-decisions.md) rather than repeated here, so
+there's only one place to change them.
